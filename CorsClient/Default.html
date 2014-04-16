@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <button id="load">Load customers</button>
+    <pre id="result"></pre>
+
+    <script src="Scripts/jquery-2.1.0.js"></script>
+    <script>
+
+        $(function () {
+            $("#load").click(function () {
+                $.getJSON("http://localhost:63856/api/customers/ALFKI").then(
+                    function success(e) {
+                        $("#result").text(JSON.stringify(e));
+                    },
+                    function error(e) {
+                        $("#result").text(JSON.stringify(e));
+                    });
+            });
+        })
+
+    </script>
+</body>
+</html>
